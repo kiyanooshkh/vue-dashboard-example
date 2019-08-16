@@ -45,12 +45,12 @@ export default {
         {
           name: "Ryu",
           role: "Graphic designer",
-          url: "https://i.pravatar.cc/300?img=51"
+          url: "https://i.pravatar.cc/300?img=62"
         },
         {
           name: "Chun Li",
           role: "Web developer",
-          url: "https://i.pravatar.cc/300?img=40"
+          url: "https://i.pravatar.cc/300?img=31"
         },
         {
           name: "Gouken",
