@@ -1,12 +1,18 @@
 <template>
   <div class="home">
-    <h1 class="subheading grey--text">Home</h1>
-    <v-container class="ma-5">
+    <h1 class="headline grey--text">Home</h1>
+    <v-container class="my-5">
       <v-row class="mb-3 ml-1">
-        <v-btn small depressed color="grey lighten-4" @click="sortBy('title')">
-          <v-icon left small>folder</v-icon>
-          <span class="caption text-lowercase">By Project Name</span>
-        </v-btn>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <v-btn small depressed color="grey lighten-4" @click="sortBy('title')" v-on="on">
+              <v-icon left small>folder</v-icon>
+              <span class="caption text-lowercase">By Project Name</span>
+            </v-btn>
+          </template>
+          <span>Ordering by project name</span>
+        </v-tooltip>
+
         <v-btn small depressed color="grey lighten-4" @click="sortBy('person')">
           <v-icon left small>person</v-icon>
           <span class="caption text-lowercase">By Person Name</span>
@@ -84,12 +90,12 @@ export default {
       ]
     };
   },
-  
+
   methods: {
     sortBy(prop) {
-      this.projects.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
+      this.projects.sort((a, b) => (a[prop] < b[prop] ? -1 : 1));
     },
-    clear(){
+    clear() {
       this.projects.reverse();
     }
   }

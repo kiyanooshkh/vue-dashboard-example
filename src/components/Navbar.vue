@@ -14,6 +14,16 @@
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer" color="primary">
+      <v-row justify="center">
+        <v-col>
+          <div class="text-center">
+            <v-avatar size="80">
+              <img src="https://i.pravatar.cc/300?img=5" alt="avatar" />
+            </v-avatar>
+            <div class="white--text">Developer</div>
+          </div>
+        </v-col>
+      </v-row>
       <v-list dense>
         <v-list-item color="primary" v-for="item in items" :key="item.title" link :to="item.route">
           <v-list-item-icon>
