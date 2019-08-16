@@ -1,4 +1,4 @@
-# vue-dashboard-example 1.0
+# vue-dashboard-example
 
 ## Project setup
 ```
