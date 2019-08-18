@@ -1,9 +1,6 @@
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production'
     ? '/vue-dashboard-example/'
-    : '/',
-    presets: [
-      '@vue/app'
-    ]
+    : '/'
   }
   
