@@ -1,5 +1,7 @@
 # vue-dashboard-example
 
+[![Build Status](https://travis-ci.org/kiyanooshkh/vue-dashboard-example.svg?branch=master)](https://travis-ci.org/kiyanooshkh/vue-dashboard-example)
+
 ## Project setup
 ```
 npm install
