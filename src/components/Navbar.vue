@@ -7,6 +7,24 @@
         <span>Example</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
+
+      <!-- dropdown menu -->
+      <v-menu offset-y>
+        <template v-slot:activator="{ on }">
+          <v-btn class="mr-2" depressed v-on="on">
+            <v-icon left>
+              expand_more
+            </v-icon>
+            <span class="font-weight-light">Menu</span>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item v-for="item in items" :key="item.title" link :to="item.route">
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+
       <v-btn depressed>
         <span class="font-weight-light">Sign Out</span>
         <v-icon right>exit_to_app</v-icon>
@@ -15,13 +33,16 @@
 
     <v-navigation-drawer app v-model="drawer" color="primary">
       <v-row justify="center">
-        <v-col>
+        <v-col cols="12">
           <div class="text-center">
             <v-avatar size="80">
               <img src="https://i.pravatar.cc/300?img=5" alt="avatar" />
             </v-avatar>
             <div class="white--text">Developer</div>
           </div>
+        </v-col>
+        <v-col cols="12">
+          <Popup/>
         </v-col>
       </v-row>
       <v-list dense>
@@ -40,7 +61,11 @@
 </template>
 
 <script>
+import Popup from "./Popup";
 export default {
+  components:{
+    Popup
+  },
   data() {
     return {
       drawer: false,
