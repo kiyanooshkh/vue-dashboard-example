@@ -11,13 +11,13 @@
         </v-card-title>
 
         <v-card-text>
-          <v-form v-model="valid">
+          <v-form v-model="valid" ref="form">
             <v-container>
               <v-row>
                 <v-col cols="12">
                   <v-text-field
                     v-model="title"
-                    :rules="nameRules"
+                    :rules="titleRules"
                     :counter="20"
                     label="Title"
                     prepend-icon="folder"
@@ -28,7 +28,7 @@
                 <v-col cols="12">
                   <v-textarea
                     v-model="content"
-                    :rules="nameRules"
+                    :rules="contentRules"
                     :counter="200"
                     label="Information"
                     prepend-icon="edit"
@@ -49,8 +49,9 @@
                   >
                     <template v-slot:activator="{ on }">
                       <v-text-field
+                        :rules="dueRules"
                         :value="formattedDate"
-                        label="Picker in menu"
+                        label="Pick a due date"
                         prepend-icon="event"
                         readonly
                         v-on="on"
@@ -84,7 +85,7 @@
 </template>
 
 <script>
-import format from 'date-fns/format';
+import format from "date-fns/format";
 
 export default {
   data() {
@@ -93,22 +94,31 @@ export default {
       due: null,
       title: "",
       content: "",
-      nameRules: [
-        v => !!v || "Name is required",
-        v => v.length <= 10 || "Name must be less than 10 characters"
+      titleRules: [
+        v => !!v || "Title is required",
+        v => v.length <= 20 || "Title must be less than 20 characters"
+      ],
+      contentRules: [
+        v => !!v || "Information is required",
+        v => v.length <= 200 || "Information must be less than 200 characters"
+      ],
+      dueRules: [
+        v => !!v || "Due Date is required",
       ],
       dialog: false
     };
   },
   methods: {
     submit() {
-     // console.log(this.title, this.content);
+      if (this.$refs.form.validate()) {
+        console.log(this.title, this.content);
+      }
     }
   },
-  computed:{
-      formattedDate(){
-          return this.due? format(this.due, 'Do MMM YYY'):'';
-      }
+  computed: {
+    formattedDate() {
+      return this.due ? format(this.due, "Do MMM YYY") : "";
+    }
   }
 };
 </script>
