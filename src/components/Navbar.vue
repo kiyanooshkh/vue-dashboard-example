@@ -1,5 +1,12 @@
 <template>
   <nav>
+    <v-snackbar v-model="snackbar" :timeout="4000" top color="success">
+      <span>
+        Awesome! You added a new project
+        <v-btn depressed color="success" class="white--text" @click="snackbar = false">Close</v-btn>
+      </span>
+    </v-snackbar>
+    
     <v-app-bar flat app>
       <v-app-bar-nav-icon class="grey--text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase grey--text">
@@ -42,7 +49,7 @@
           </div>
         </v-col>
         <v-col cols="12">
-          <Popup/>
+          <Popup @projectAdded="snackbar = true"/>
         </v-col>
       </v-row>
       <v-list dense>
@@ -69,11 +76,12 @@ export default {
   data() {
     return {
       drawer: false,
+      snackbar: false,
       items: [
         { title: "Home", icon: "home", route: "/" },
         { title: "Projects", icon: "folder", route: "/projects" },
         { title: "Team", icon: "person", route: "/team" }
-      ]
+      ],  
     };
   }
 };

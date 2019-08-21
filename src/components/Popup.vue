@@ -125,6 +125,7 @@ export default {
           .then(() => {
             this.loading = false;
             this.dialog = false;
+            this.$emit('projectAdded');
             console.log("add to db");
           });
       }
