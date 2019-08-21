@@ -66,7 +66,7 @@
                 </v-col>
 
                 <v-col cols="12">
-                  <v-btn class="mr-2" depressed color="success" @click="submit">
+                  <v-btn class="mr-2" color="success" @click="submit" :loading="loading">
                     <v-icon left>save</v-icon>
                     <span class="font-weight-light">Add new project</span>
                   </v-btn>
@@ -86,6 +86,7 @@
 
 <script>
 import format from "date-fns/format";
+import db from "@/fb";
 
 export default {
   data() {
@@ -94,6 +95,7 @@ export default {
       due: null,
       title: "",
       content: "",
+      loading: false,
       titleRules: [
         v => !!v || "Title is required",
         v => v.length <= 20 || "Title must be less than 20 characters"
@@ -102,16 +104,29 @@ export default {
         v => !!v || "Information is required",
         v => v.length <= 200 || "Information must be less than 200 characters"
       ],
-      dueRules: [
-        v => !!v || "Due Date is required",
-      ],
+      dueRules: [v => !!v || "Due Date is required"],
       dialog: false
     };
   },
   methods: {
     submit() {
       if (this.$refs.form.validate()) {
-        console.log(this.title, this.content);
+        this.loading = true;
+        const project = {
+          title: this.title,
+          content: this.content,
+          due: format(this.due, "Do MMM YYYY"),
+          person: "Yoshi",
+          status: "ongoing"
+        };
+
+        db.collection("projects")
+          .add(project)
+          .then(() => {
+            this.loading = false;
+            this.dialog = false;
+            console.log("add to db");
+          });
       }
     }
   },
