@@ -13,6 +13,7 @@
     "core-js": "^2.6.5",
     "date-fns": "^1.30.1",
     "firebase": "^6.4.0",
+    "sass": "^1.23.7",
     "travis": "^0.1.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
@@ -25,13 +26,12 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "fsevents": "*",
     "material-design-icons-iconfont": "^5.0.1",
-    "sass": "^1.22.10",
     "sass-loader": "^7.3.1",
     "vue-cli-plugin-vuetify": "^0.6.3",
     "vue-template-compiler": "^2.6.10",
-    "vuetify-loader": "^1.2.2",
-    "fsevents": "*"
+    "vuetify-loader": "^1.2.2"
   },
   "eslintConfig": {
     "root": true,
