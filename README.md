@@ -1,9 +1,9 @@
 # vue-dashboard-example
-[![Build Status](https://travis-ci.org/kiyanooshkh/vue-dashboard-example.svg?branch=master)](https://travis-ci.org/kiyanooshkh/vue-dashboard-example)
+[![Build Status](https://travis-ci.org/kiyanooshkh/vue-dashboard-example.svg?branch=master)](https://travis-ci.org/kiyanooshkh/dashboard-vue-example)
 
 ## Link
 
-[Click here to see the demo](https://kiyanooshkh.github.io/vue-dashboard-example/)
+[Click here to see the demo](https://kiyanooshkh.github.io/dashboard-vue-example/)
   
 ## Project setup
 
