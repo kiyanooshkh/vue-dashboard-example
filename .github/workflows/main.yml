@@ -32,7 +32,9 @@ jobs:
         with:
           name: dist
           path: dist
-      - name: Deploy to Firebase
+      - name: Deploy to GitPage
         uses: crazy-max/ghaction-github-pages@v2.5.0
         with:
           build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
